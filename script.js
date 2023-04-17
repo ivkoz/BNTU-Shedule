@@ -3,7 +3,7 @@ var TelegramBot = require('node-telegram-bot-api');
 const path = require('path');
 const fs = require('fs');
 let lastMessageId;
-const schedule = JSON.parse(fs.readFileSync('./schedule.json', 'utf8'));
+const schedule = JSON.parse(fs.readFileSync('C:/Users/ыукп/Desktop/chatgpt/BNTU Schedule/data/schedule.json', 'utf8'));
 
 
 // Устанавливаем токен, который выдавал нам бот
