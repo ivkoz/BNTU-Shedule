@@ -3,7 +3,7 @@ var TelegramBot = require('node-telegram-bot-api');
 const path = require('path');
 const fs = require('fs');
 let lastMessageId;
-const schedule = JSON.parse(fs.readFileSync('./schedule.json', 'utf8'));
+const schedule = JSON.parse(fs.readFileSync('C:/Users/ыукп/Desktop/chatgpt/BNTU Schedule/data/schedule.json', 'utf8'));
 
 
 // Устанавливаем токен, который выдавал нам бот
@@ -73,12 +73,11 @@ bot.on('callback_query', (query) => {
     });
   }
   else if (data === 'GM_1') {
-
     // Если пользователь нажал на кнопку "1 курс" для Горных машин, то редактируем предыдущее сообщение с расписанием второго курса и клавиатурой "Назад"
     console.log('1')
-    const schedule = data[data]['1 курс']; // получаем расписание для 1 курса Горных машин из файла JSON
+    const gmSchedule = schedule[data]['1 курс']; // получаем расписание для 1 курса Горных машин из файла JSON
     console.log('1')
-    bot.editMessageText(schedule, {
+    bot.editMessageText(gmSchedule, {
       chat_id: chatId,
       message_id: lastMessageId,
       reply_markup: {
